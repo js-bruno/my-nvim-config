@@ -56,7 +56,8 @@ require'nvim-treesitter.configs'.setup {
 }
 require("indent_blankline").setup {
     -- for example, context is off by default, use this to turn it on
-    show_current_context = true,
-    show_current_context_start = true,
-    indentLine_fileTypeExclud = {"Dashboard", "help"},
+    char = "|",
+    buftype_exclude = {"terminal"},
+    filetype_exclude = {"dashboard", "NvimTree", "packer"}
+
 }
