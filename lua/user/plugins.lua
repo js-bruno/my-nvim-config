@@ -55,6 +55,9 @@ return packer.startup(function(use)
 	use { "moll/vim-bbye", commit = "25ef93ac5a87526111f43e5110675032dbcacf56" }
   use { "nvim-lualine/lualine.nvim", commit = "a52f078026b27694d2290e34efa61a6e4a690621" }
   use { "lewis6991/gitsigns.nvim"}
+  use { "numToStr/Comment.nvim", commit = "97a188a98b5a3a6f9b1b850799ac078faa17ab67" }
+  use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" }
+  use { "lukas-reineke/indent-blankline.nvim" }
 
   -- Colorschemes
   use 'lunarvim/colorschemes' -- a bunche of colorshemes
@@ -62,6 +65,7 @@ return packer.startup(function(use)
   use { "ellisonleao/gruvbox.nvim" }
   use { "ChristianChiarulli/onedark.nvim" }
   use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
+  use "rebelot/kanagawa.nvim"
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -71,8 +75,6 @@ return packer.startup(function(use)
   use "saadparwaiz1/cmp_luasnip" -- snippet completions
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-nvim-lua"
-  use { "numToStr/Comment.nvim", commit = "97a188a98b5a3a6f9b1b850799ac078faa17ab67" }
-  use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" }
   use { "akinsho/toggleterm.nvim", commit = "2a787c426ef00cb3488c11b14f5dcf892bbd0bda" }
 
   -- snippets
@@ -94,19 +96,33 @@ return packer.startup(function(use)
 		"nvim-treesitter/nvim-treesitter",
 		commit = "226c1475a46a2ef6d840af9caa0117a439465500",
 	}
-  -- use "p00f/nvim-ts-rainbow"
-  -- use "nvim-treesitter/playground"
-
   use {"folke/which-key.nvim"}
 
-  use {
-      'goolord/alpha-nvim',
-      requires = { 'nvim-tree/nvim-web-devicons' },
-      config = function ()
-          require'alpha'.setup(require'alpha.themes.dashboard'.config)
-      end
-  }
- -- Automatically set up your configuration after cloning packer.nvim
+ use {
+   'glepnir/dashboard-nvim',
+   event = 'VimEnter',
+   config = function()
+     require('dashboard').setup {
+        config = {
+          center = {
+            {
+              icon = '',
+              icon_hl = 'group',
+              desc = 'description',
+              desc_hl = 'group',
+              key = 'shortcut key in dashboard buffer not keymap !!',
+              key_hl = 'group',
+              action = '',
+            },
+          },
+          footer = {},
+        }
+       }
+
+   end,
+   requires = {'nvim-tree/nvim-web-devicons'}
+ }
+  -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then
     require("packer").sync()
