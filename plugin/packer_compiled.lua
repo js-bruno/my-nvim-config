@@ -130,7 +130,7 @@ _G.packer_plugins = {
     url = "https://github.com/lunarvim/darkplus.nvim"
   },
   ["dashboard-nvim"] = {
-    config = { "\27LJ\2\nô\1\0\0\6\0\t\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\4\0004\4\3\0005\5\3\0>\5\1\4=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\vconfig\1\0\0\vfooter\vcenter\1\0\0\1\0\a\bkey3shortcut key in dashboard buffer not keymap !!\fdesc_hl\ngroup\vaction\5\ficon_hl\ngroup\ticon\5\tdesc\16description\vkey_hl\ngroup\nsetup\14dashboard\frequire\0" },
+    config = { "\27LJ\2\nô\1\0\0\6\0\t\0\0156\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\a\0005\3\4\0004\4\3\0005\5\3\0>\5\1\4=\4\5\0034\4\0\0=\4\6\3=\3\b\2B\0\2\1K\0\1\0\vconfig\1\0\0\vfooter\vcenter\1\0\0\1\0\a\fdesc_hl\ngroup\vkey_hl\ngroup\ficon_hl\ngroup\ticon\5\vaction\5\tdesc\16description\bkey3shortcut key in dashboard buffer not keymap !!\nsetup\14dashboard\frequire\0" },
     loaded = false,
     needs_bufread = false,
     only_cond = false,
@@ -200,6 +200,11 @@ _G.packer_plugins = {
     path = "/home/ze/.local/share/nvim/site/pack/packer/start/nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
   },
+  ["nvim-dap-python"] = {
+    loaded = true,
+    path = "/home/ze/.local/share/nvim/site/pack/packer/start/nvim-dap-python",
+    url = "https://github.com/mfussenegger/nvim-dap-python"
+  },
   ["nvim-lspconfig"] = {
     loaded = true,
     path = "/home/ze/.local/share/nvim/site/pack/packer/start/nvim-lspconfig",
@@ -265,6 +270,12 @@ _G.packer_plugins = {
     path = "/home/ze/.local/share/nvim/site/pack/packer/start/tokyonight.nvim",
     url = "https://github.com/folke/tokyonight.nvim"
   },
+  ["venv-selector.nvim"] = {
+    config = { "\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18venv-selector\frequire\0" },
+    loaded = true,
+    path = "/home/ze/.local/share/nvim/site/pack/packer/start/venv-selector.nvim",
+    url = "https://github.com/linux-cultist/venv-selector.nvim"
+  },
   ["vim-bbye"] = {
     loaded = true,
     path = "/home/ze/.local/share/nvim/site/pack/packer/start/vim-bbye",
@@ -291,6 +302,10 @@ _G.packer_plugins = {
 }
 
 time([[Defining packer_plugins]], false)
+-- Config for: venv-selector.nvim
+time([[Config for venv-selector.nvim]], true)
+try_loadstring("\27LJ\2\n?\0\0\3\0\3\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0004\2\0\0B\0\2\1K\0\1\0\nsetup\18venv-selector\frequire\0", "config", "venv-selector.nvim")
+time([[Config for venv-selector.nvim]], false)
 
 -- Command lazy-loads
 time([[Defining lazy-load commands]], true)

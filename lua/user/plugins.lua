@@ -58,7 +58,17 @@ return packer.startup(function(use)
   use { "numToStr/Comment.nvim", commit = "97a188a98b5a3a6f9b1b850799ac078faa17ab67" }
   use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" }
   use { "lukas-reineke/indent-blankline.nvim" }
-
+  use { "mfussenegger/nvim-dap-python" }
+  use {
+    "linux-cultist/venv-selector.nvim",
+      dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
+      config = function()
+          require("venv-selector").setup({
+        -- Your options go here
+        -- name = "venv",
+        -- auto_refresh = false
+      }) end,
+    }
   -- Colorschemes
   use 'lunarvim/colorschemes' -- a bunche of colorshemes
   use 'folke/tokyonight.nvim'
@@ -97,6 +107,7 @@ return packer.startup(function(use)
 		commit = "226c1475a46a2ef6d840af9caa0117a439465500",
 	}
   use {"folke/which-key.nvim"}
+  use {"mfussenegger/nvim-dap-python"}
 
  use {
    'glepnir/dashboard-nvim',
