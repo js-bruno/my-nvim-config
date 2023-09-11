@@ -41,12 +41,12 @@ packer.init {
 
 -- Install your plugins here
 return packer.startup(function(use)
-  -- My plugins here
+  -- My plugins here  
+  use { "vim-scripts/ReplaceWithRegister" }
   use "wbthomason/packer.nvim" -- Have packer manage itself
   use "nvim-lua/popup.nvim" -- An implementation of the Popup API from vim in Neovim
   use "nvim-lua/plenary.nvim" -- Useful lua functions used ny lots of plugins
   use "windwp/nvim-autopairs" -- Autopairs, integrates with both cmp and treesitter
-  use 'rstacruz/vim-closer'
   use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
   use {'iamcco/markdown-preview.nvim', run = 'cd app && npm install', cmd = 'MarkdownPreview'}
   use { "kyazdani42/nvim-web-devicons", commit = "563f3635c2d8a7be7933b9e547f7c178ba0d4352" }
@@ -59,6 +59,7 @@ return packer.startup(function(use)
   use { "JoosepAlviste/nvim-ts-context-commentstring", commit = "4d3a68c41a53add8804f471fcc49bb398fe8de08" }
   use { "lukas-reineke/indent-blankline.nvim" }
   use { "mfussenegger/nvim-dap-python" }
+  -- use { "mg979/vim-visual-multi" }
   use {
     "linux-cultist/venv-selector.nvim",
       dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim", "mfussenegger/nvim-dap-python" },
@@ -69,13 +70,15 @@ return packer.startup(function(use)
         -- auto_refresh = false
       }) end,
     }
+  use {'ojroques/nvim-bufdel'}
   -- Colorschemes
-  use 'lunarvim/colorschemes' -- a bunche of colorshemes
-  use 'folke/tokyonight.nvim'
+  use {'lunarvim/colorschemes'} -- a bunche of colorshemes
+  use {'folke/tokyonight.nvim'}
   use { "ellisonleao/gruvbox.nvim" }
   use { "ChristianChiarulli/onedark.nvim" }
   use { "lunarvim/darkplus.nvim", commit = "13ef9daad28d3cf6c5e793acfc16ddbf456e1c83" }
   use "rebelot/kanagawa.nvim"
+  use { "catppuccin/nvim", as = "catppuccin" }
 
   -- cmp plugins
   use "hrsh7th/nvim-cmp" -- The completion plugin
@@ -99,7 +102,7 @@ return packer.startup(function(use)
 
   -- Telescope
   use "nvim-telescope/telescope.nvim"
-  use 'nvim-telescope/telescope-media-files.nvim'
+  use "nvim-telescope/telescope-media-files.nvim"
 
 	-- Treesitter
 	use {
@@ -107,32 +110,8 @@ return packer.startup(function(use)
 		commit = "226c1475a46a2ef6d840af9caa0117a439465500",
 	}
   use {"folke/which-key.nvim"}
-  use {"mfussenegger/nvim-dap-python"}
+  use {"goolord/alpha-nvim"}
 
- use {
-   'glepnir/dashboard-nvim',
-   event = 'VimEnter',
-   config = function()
-     require('dashboard').setup {
-        config = {
-          center = {
-            {
-              icon = '',
-              icon_hl = 'group',
-              desc = 'description',
-              desc_hl = 'group',
-              key = 'shortcut key in dashboard buffer not keymap !!',
-              key_hl = 'group',
-              action = '',
-            },
-          },
-          footer = {},
-        }
-       }
-
-   end,
-   requires = {'nvim-tree/nvim-web-devicons'}
- }
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
   if PACKER_BOOTSTRAP then

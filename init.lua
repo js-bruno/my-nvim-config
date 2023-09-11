@@ -1,6 +1,7 @@
 require "user.plugins"
 require "user.options"
 require "user.keymaps"
+require "user.whichkey"
 require "user.colorscheme"
 require "user.cmp"
 require "user.lsp"
@@ -12,8 +13,8 @@ require "user.gitsigns"
 require "user.bufferline"
 require "user.toggleterm"
 require "user.lualine"
-require "user.dashboard"
-
+-- require "user.dashboard"
+require "user.alpha"
 require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
   ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
@@ -57,8 +58,9 @@ require'nvim-treesitter.configs'.setup {
 }
 require("indent_blankline").setup {
     -- for example, context is off by default, use this to turn it on
-    char = "|",
+    show_end_of_line = true,
+    space_char_blankline = " ",
     buftype_exclude = {"terminal"},
-    filetype_exclude = {"dashboard", "NvimTree", "packer"}
+    filetype_exclude = {"alpha", "NvimTree", "packer"}
 
 }
