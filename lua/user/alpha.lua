@@ -21,9 +21,9 @@ dashboard.section.header.val = {
 }
 
 
-local footer =  "Don't Stop Until You are Proud..."
-
-dashboard.section.footer.val = footer
+-- local footer =  "Don't Stop Until You are Proud..."
+--
+-- dashboard.section.footer.val = footer
 
 dashboard.section.footer.opts.hl = "Type"
 dashboard.section.header.opts.hl = "Include"
