@@ -1,5 +1,6 @@
 
 local servers = {
+  "gopls",
   "lua_ls",
 	"pylsp",
 	"jsonls",

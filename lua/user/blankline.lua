@@ -5,9 +5,9 @@ end
 
 
 blankline.setup {
--- example, context is off by default, use this to turn it on
+  -- example, context is off by default, use this to turn it on
   show_end_of_line = true,
   space_char_blankline = " ",
-  buftype_exclude = {"terminal"},
-  filetype_exclude = {"alpha", "NvimTree", "packer"}
+  buftype_exclude = { "terminal" },
+  filetype_exclude = { "alpha", "NvimTree", "packer" }
 }

@@ -22,7 +22,9 @@ M.setup = function()
     },
     update_in_insert = true,
     underline = true,
-    severity_sort = true, float = { focusable = false,
+    severity_sort = true,
+    float = {
+      focusable = false,
       style = "minimal",
       border = "rounded",
       source = "always",
