@@ -87,6 +87,14 @@ return packer.startup(function(use)
   use { "Mofiqul/dracula.nvim" }
   use { "bartekprtc/gruv-vsassist.nvim" }
   use { 'sainnhe/sonokai' }
+  use({
+    "neanias/everforest-nvim",
+    -- Optional; default configuration will be used if setup isn't called.
+    config = function()
+      require("everforest").setup()
+    end,
+  })
+
   -- cmp plugins
   use "hrsh7th/nvim-cmp"         -- The completion plugin
   use "hrsh7th/cmp-buffer"       -- buffer completions

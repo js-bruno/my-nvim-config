@@ -1,11 +1,6 @@
-local status_ok, treesitter_config = pcall(require, "nvim-treesitter-config")
-if not status_ok then
-  return
-end
-
-treesitter_config.setup {
+require'nvim-treesitter.configs'.setup {
   -- A list of parser names, or "all" (the five listed parsers should always be installed)
-  ensure_installed = { "python" , "go", "c", "lua", "vim", "vimdoc", "query" },
+  ensure_installed = { "c", "lua", "vim", "vimdoc", "query" },
 
   -- Install parsers synchronously (only applied to `ensure_installed`)
   sync_install = false,
@@ -14,7 +9,7 @@ treesitter_config.setup {
   -- Recommendation: set to false if you don't have `tree-sitter` CLI installed locally
   auto_install = true,
 
-  -- List of parsers to ignore installing (for "all")
+  -- List of parsers to ignore installing (or "all")
   ignore_install = { "javascript" },
 
   ---- If you need to change the installation directory of the parsers (see -> Advanced Setup)
@@ -44,5 +39,3 @@ treesitter_config.setup {
     additional_vim_regex_highlighting = false,
   },
 }
-
-
